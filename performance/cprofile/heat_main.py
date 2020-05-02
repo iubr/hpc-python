@@ -34,6 +34,7 @@ def main(input_file='bottle.dat', a=0.5, dx=0.1, dy=0.1,
 
 if __name__ == '__main__':
 
+    t0 = time.process_time()
     # Process command line arguments
     parser = argparse.ArgumentParser(description='Heat equation')
     parser.add_argument('-dx', type=float, default=0.01,
@@ -52,4 +53,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     main(args.f, args.a, args.dx, args.dy, args.n, args.i)
+    t1 = time.process_time()
+    print("Time spent", t1 - t0)
 
