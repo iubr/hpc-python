@@ -24,19 +24,20 @@ overhead = maxmem()
 
 a = np.random.random((1024, 1024, 10))
 b = np.random.random((1024, 1024, 10))
-c = a - b
+#c = a - b
 #c = 2.0 * a - 4.5 * b
 #c = 2.0 * a - 4.5 * b + np.sin(a) - np.cos(b)
 #c = 2.0 * a - 4.5 * b + (np.sin(a) - np.cos(b))
-#c = (np.sin(a) - np.cos(b)) + 2.0 * a - 4.5 * b
+#c = np.sin(a) - (np.cos(b) - 2.0 * a) - 4.5 * b
 
 #c = 2.0 * a
 #c -= 4.5 * b
 #c += np.sin(a)
 #c -= np.cos(b)
 
+b=np.concatenate(a,b)
 mem = maxmem() - overhead
 
 print("Size of single array: {0} MB".format(a.nbytes / 1024.0**2))
 print("Maximum memory: {0:.3f} arrays".format(mem / a.nbytes))
-print("Maximum memory used {0} (MB)".format(mem/1024.0**2))
+print("Maximum memory used {0:.2f} (MB)".format(mem/1024.0**2))
